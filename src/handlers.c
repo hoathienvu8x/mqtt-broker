@@ -48,13 +48,7 @@ rc_t handle_message(struct session_data *session)
     case PINGREQ:
       return handle_pingrec(session);
     case UNSUBSCRIBE:
-    case CONNACK:
-    case PUBACK:
-    case PUBREC:
-    case PUBCOMP:
-    case SUBACK:
-    case PINGRESP:
-    case PUBREL:
+    default:
       LOG(ERROR, "Mensagem proibida ou não implementada.\n");
       return BROKER_ERROR;
   }
