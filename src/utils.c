@@ -22,18 +22,18 @@
 
 rc_t create_topic_dir(char *pathname, char *pathloc, ssize_t maxpathlen)
 {
-    //struct timeval tv;
-    //gettimeofday(&tv, NULL);
-    //time_t t = (time_t) tv.tv_sec;
-    //struct tm *tm = localtime(&t);
-    time_t t = time(0);
-    int n = snprintf(pathname, maxpathlen, "%s%ld/", pathloc, (long) t);
+  //struct timeval tv;
+  //gettimeofday(&tv, NULL);
+  //time_t t = (time_t) tv.tv_sec;
+  //struct tm *tm = localtime(&t);
+  time_t t = time(0);
+  int n = snprintf(pathname, maxpathlen, "%s%ld/", pathloc, (long) t);
 
-    if (mkdir(pathname, 0777) == -1) {
-        LOG(ERROR, "Não foi possível criar diretório '%s'.", pathname);
-        return SYSTEM_ERROR;
-    }
-    return BROKER_OK;
+  if (mkdir(pathname, 0777) == -1) {
+    LOG(ERROR, "Não foi possível criar diretório '%s'.", pathname);
+    return SYSTEM_ERROR;
+  }
+  return BROKER_OK;
 }
 
 #endif

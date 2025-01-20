@@ -45,17 +45,17 @@
  */
 #if LOGGING
 #define LOG(verbosity, ...)                       \
-    _log(verbosity, __VA_ARGS__)
+  _log(verbosity, __VA_ARGS__)
 #else
 #define LOG(verbosity, ...)                       \
-    _void_func()
+  _void_func()
 #endif
 #if DEBUGGING
 #define DEBUG(...)                                  \
-    _log(...)
+  _log(...)
 #else
 #define DEBUG(...)                                  \
-    void
+  void
 #endif
 
 

@@ -20,36 +20,36 @@
 /* Structs internas usadas para passar dados entre as funções.
  */
 struct session_data {
-    /* Dados da conexão */
-    int                connfd;
-    bool               connected;  /* se um MQTT CONNECT foi estabelecido */
-    bool               session_present;
+  /* Dados da conexão */
+  int                connfd;
+  bool               connected;  /* se um MQTT CONNECT foi estabelecido */
+  bool               session_present;
 
-    /* Dados do tópico em que se publica ou em que se inscreve */
-    FILE               *topic;
-    char               *topicfp;
-    char               *topicname;
-    uint16_t           topicnamelen;
+  /* Dados do tópico em que se publica ou em que se inscreve */
+  FILE               *topic;
+  char               *topicfp;
+  char               *topicname;
+  uint16_t           topicnamelen;
 
-    struct             control_packet *packet;
+  struct             control_packet *packet;
 };
 
 struct control_packet {
-    uint8_t type;
-    uint8_t fixed_header_flags;
-    ssize_t remaininglen;
-    ssize_t payloadlen;
+  uint8_t type;
+  uint8_t fixed_header_flags;
+  ssize_t remaininglen;
+  ssize_t payloadlen;
 
-    /* Flags de connect */
-    uint8_t dup;
-    uint8_t qos;
-    uint8_t retain;
-    uint8_t clean_session;
+  /* Flags de connect */
+  uint8_t dup;
+  uint8_t qos;
+  uint8_t retain;
+  uint8_t clean_session;
 
-    int8_t    *fixed_header;
-    int8_t    *variable_header;
-    int8_t    *payload;
-    char      *payloadmsg;
+  int8_t    *fixed_header;
+  int8_t    *variable_header;
+  int8_t    *payload;
+  char      *payloadmsg;
 };
 
 /* Função: session_init - inicia e administra uma sessão entre o cliente e o broker.
